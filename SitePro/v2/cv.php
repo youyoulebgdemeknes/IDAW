@@ -12,8 +12,8 @@ require_once('template_header.php');
     <hr>
     <h4> voici une photo de mon CV</h4>
     <p>en fait j'ai pas de cv je suis pas trop je suis un peu nul donc voila </p>
-</body>
-<?php
+    <?php
 require_once('template_footers.php');
 ?>
+</body>
 </html>

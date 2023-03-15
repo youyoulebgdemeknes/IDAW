@@ -6,3 +6,4 @@
             echo ("<p id='date'>" . date("h:i:s A") . "</p>")
         ?>
 </footer>
+</body>

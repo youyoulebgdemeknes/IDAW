@@ -10,8 +10,8 @@ require_once('template_header.php');
     <h1> Younes allouchi</h1>
     <h2> voici un site pour me présenter </h2>
     <p> enfait j'ai <strong> pas de hobbies </strong>  </p>
-</body>
-<?php
+    <?php
 require_once('template_footers.php');
 ?>
+</body>
 </html>
