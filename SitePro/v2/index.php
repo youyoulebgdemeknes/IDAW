@@ -2,7 +2,6 @@
 require_once('template_header.php');
 ?>
     <h1> Accueil</h1> 
-    <h2> Sommaire </h2>
     <?php
     require_once('template_nav.php');
     renderMenuToHTML("index") ;

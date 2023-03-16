@@ -1,11 +1,10 @@
 <?php
 require_once('template_header.php');
 ?>
-<body>
     <h1>Mon CV</h1> 
-    <h2>Sommaire</h2>
     <?php
     require_once('template_nav.php');
+    renderMenuToHTML("cv") ;
     ?>
     <h3>Erreur younes n'a pas de CV</h3>    
     <p> vous pouvez selctioner n'importe quel item de cet page </p>

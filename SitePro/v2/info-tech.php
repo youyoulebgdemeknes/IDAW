@@ -1,11 +1,10 @@
 <?php
 require_once('template_header.php');
 ?>
-<body>
     <h1>Information Technique</h1> 
-    <h2>Sommaire</h2>
     <?php
     require_once('template_nav.php');
+    renderMenuToHTML("info-tech") ;
     ?>
     <h1>HTML - HyperText Markup Language</h1>
     <p>HTML est le langage standard utilisé pour créer des pages web. Il permet de structurer le contenu d'une page en utilisant des balises (ou tags) qui décrivent le type de contenu qu'elles contiennent.</p>
