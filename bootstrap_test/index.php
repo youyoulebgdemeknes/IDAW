@@ -1,6 +1,7 @@
 <?php
     require_once('template_header.php');
     require_once('template_menu.php');
+    renderMenuToHTML("index") ;
 ?>
 <section class="resume-section" id="Accueil">
     <div class="resume-section-content">

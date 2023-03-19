@@ -1,6 +1,7 @@
 <?php
     require_once('template_header.php');
     require_once('template_menu.php');
+    renderMenuToHTML("projets") ;
 ?>
 <hr class="m-0" />
             <!-- Projets-->

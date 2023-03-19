@@ -1,6 +1,7 @@
 <?php
 require_once('template_header.php');
 require_once('template_menu.php');
+renderMenuToHTML("info_tech") ;
 ?>
             <!-- Interests-->
             <section class="resume-section" id="interests">

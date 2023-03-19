@@ -8,7 +8,6 @@ function renderMenuToHTML($currentPageId) {
         'cv' => array( 'Cv' ),
         'hobbies' => array('Hobies'),
         'info-tech'=> array('Information Technique')
-        'projets' =>=> array('Projets')
         );
 
         echo ("<nav class='menu'>");
