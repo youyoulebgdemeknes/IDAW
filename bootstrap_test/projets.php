@@ -11,7 +11,7 @@
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Senior Web Developer</h3>
                             <div class="subheading mb-3">Intelitec Solutions</div>
-                            <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+                            <p>Apportez des stratégies commerciale gagnant-gagnant pour assurer une domination proactive. En fin de compte, à l'avenir, une nouvelle normalité qui a évolué à partir de la génération X est sur la piste en direction d'une solution cloud rationalisée. Le contenu généré par l'utilisateur en temps réel aura plusieurs points de contact pour la délocalisation.</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">March 2013 - Present</span></div>
                     </div>
@@ -19,25 +19,25 @@
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Web Developer</h3>
                             <div class="subheading mb-3">Intelitec Solutions</div>
-                            <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
+                            <p>Capitalisez sur des opportunité pour identifier une activité à valeur ajoutée approximative à tester en version bêta. Surmontez la fracture numérique avec des efforts supplémentaires de DevOps. L'immersion dans le domaine de la Data afin d'augmenter le résultat net.</p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary">Decembre 2020 - Mars 2021</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Junior Web Designer</h3>
                             <div class="subheading mb-3">Shout! Media Productions</div>
-                            <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.</p>
+                            <p>Podcasting gestion du changement opérationnel à l'intérieur des flux de travail pour établir un cadre. Mettre en ligne des indicateurs de performance clés transparents pour maximiser l'efficacite. Garder un œil sur la balle tout en effectuant une plongée profonde sur la mentalité de start-up pour dériver la convergence sur l'intégration multiplateforme.</p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">July 2010 - December 2011</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary">Juillet 2019 - Decembre 20120</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Web Design Intern</h3>
                             <div class="subheading mb-3">Shout! Media Productions</div>
-                            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
+                            <p>Administrez en collaboration des marchés autonomes via des réseaux plug-and-play. Obsevez dynamiquement les utilisateurs B2C après les avantages de la base installée. Visualisez de manière spectaculaire la convergence orientée client avec un retour sur investissement révolutionnaire.</p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary">Septembre 2018 - Juin 2019</span></div>
                     </div>
                 </div>
             </section>
