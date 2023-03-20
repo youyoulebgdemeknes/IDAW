@@ -1,8 +1,3 @@
-<?php
-    require_once('template_header.php');
-    require_once('template_menu.php');
-    renderMenuToHTML("index") ;
-?>
 <section class="resume-section" id="Accueil">
     <div class="resume-section-content">
         <h1 class="mb-0">
@@ -22,6 +17,3 @@
         </div>
     </div>
 </section>
-<?php
-    require_once('template_footers.php');
-?>   

@@ -1,8 +1,3 @@
-<?php
-    require_once('template_header.php');
-    require_once('template_menu.php');
-    renderMenuToHTML("cv") ;
-?>
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
@@ -25,7 +20,4 @@
                         <div class="flex-shrink-0"><span class="text-primary">Aout 2022 - Decembre 2022</span></div>
                     </div>
                 </div>
-            </section>
-<?php
-    require_once('template_footers.php');
-?>          
+            </section>       

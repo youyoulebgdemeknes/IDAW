@@ -1,8 +1,3 @@
-<?php
-    require_once('template_header.php');
-    require_once('template_menu.php');
-    renderMenuToHTML("projets") ;
-?>
 <hr class="m-0" />
             <!-- Projets-->
             <section class="resume-section" id="Projets">
@@ -42,7 +37,4 @@
                     </div>
                 </div>
             </section>
-        <hr class="m-0" />
-<?php
-    require_once('template_footers.php');
-?>   
+        <hr class="m-0" />  

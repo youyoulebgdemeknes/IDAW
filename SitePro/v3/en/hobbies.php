@@ -1,8 +1,3 @@
-<?php
-require_once('template_header.php');
-require_once('template_menu.php');
-renderMenuToHTML("hobbies") ;
-?>
             <!-- Interests-->
             <section class="resume-section" id="hobbies">
                 <div class="resume-section-content">
@@ -57,7 +52,4 @@ renderMenuToHTML("hobbies") ;
                         </li>
                     </ul>
                 </div>
-            </section>
-<?php
-    require_once('template_footers.php');
-?>   
+            </section>  
