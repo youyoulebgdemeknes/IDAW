@@ -15,33 +15,46 @@
     }
 
 echo "<table>";
-echo "<tr><th>ID</th><th>Nom</th><th>Prénom</th><th>Email</th></tr>";
+echo "<tr><th>ID</th><th>Nom</th><th>Email</th><th>MDP</th></tr>";
 foreach ($users as $user) {
     echo "<tr>";
     echo "<td>" . $user['id'] . "</td>";
     echo "<td>" . $user['name'] . "</td>";
     echo "<td>" . $user['email'] . "</td>";
     echo "<td>" . $user['login'] . "</td>";
-    echo "</tr>";
+    //Le bouton supprimer
+    echo '<th>';
+    echo "<form method='post' action='supprime.php'>";
+    echo "<input type='hidden' name='id' value='{$user['id']}'/>";
+    echo "<input type='submit' value='Supprimer'/>";
+    echo "</form>";
+    echo '</th>';
+    // Le bouton modifier 
+    echo '<th>';
+    echo "<form method = 'post' action = 'modify.php>";
+    echo "<input type='hidden' name='id' value='{$user['id']}'/>";
+    echo "<input type='submit' value='Modifier'/>";
+    echo "</form>";
+    echo '</th>';
+    echo '</tr>';
 }
 echo "</table>";
 
-    echo "<tr>";
-    echo "<td>" . $user['id'] . "</td>";
-    echo "<td>" . $user['name'] . "</td>";
-    echo "<td>" . $user['email'] . "</td>";
-    echo "<td>" . $user['login'] . "</td>";
-    echo "</tr>";
+    
 
-    echo"<form id='login_form' action='users.php' method='POST'>";
+    echo"<form id='login_form' action='request.php' method='POST'>";
     echo"<table>";
     echo"<tr>";
-    echo"<th>Login :</th>";
-    echo"<td><input type='text' name='login'></td>";
+    echo"<th> Nom:</th>";
+    echo"<td><input type='text' name='Nom'></td>";
     echo"</tr>";
     echo"<tr>";
-    echo"<th>Mot de passe :</th>";
-    echo"<td><input type='text' name='email'></td>";
+    echo"<th>Email:</th>";
+    echo"<td><input type='text' name='Email'></td>";
+    echo"</tr>";
+    echo"<tr>";
+    echo"<th>Mot De Passe:</th>";
+    echo"<td><input type='text' name='MDP'></td>";
     echo"</tr>";
     echo"<tr>";
     echo"<th></th>";
@@ -51,20 +64,3 @@ echo "</table>";
     echo"</form>";
 $pdo = null;
 ?>
-
-<form>
-  <div>
-    <label for="title">Titre du billet :</label>
-    <input type="text" id="title" name="title" value="Mon meilleur billet">
-  </div>
-  <div>
-    <label for="content">Contenu :</label>
-    <textarea id="content" name="content" cols="60" rows="5">
-Voici le contenu de mon meilleur billet, j'espère que ça vous plaît !
-    </textarea>
-  </div>
-  <div>
-    <button type="submit">Mettre à jour le billet</button>
-  </div>
-  <input type="hidden" id="postId" name="postId" value="34657">
-</form>
