@@ -7,18 +7,18 @@ if(isset($_POST['id']) ) {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $tryID=$_POST['id'];
-        $sth = $pdo->prepare(
+        /*$sth = $pdo->prepare(
         "DELETE FROM Users WHERE id= '$tryID' "
         );
-        $sth->execute();
+        $sth->execute();*/
 echo "Entrée effcée dans la table";
 }
 catch (PDOException $erreur) {
     echo "Erreur : " . $erreur->getMessage();
 exit();
 };
-
 }
+    print("modify")
     echo"<form id='login_form' action='modify.users' method='POST'>";
     echo"<table>";
     echo"<tr>";
@@ -39,3 +39,5 @@ exit();
     echo"</tr>";
     echo"</table>";
     echo"</form>";
+
+    ?>
