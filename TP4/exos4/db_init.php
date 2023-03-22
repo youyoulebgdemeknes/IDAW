@@ -6,7 +6,7 @@
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $request = file_get_contents("users (1).sql");
         $pdo->exec($request);
-        print("all good my g");
+        print("connexion réussi");
     }
     catch (PDOException $erreur) {
         echo "Erreur : " . $erreur->getMessage();

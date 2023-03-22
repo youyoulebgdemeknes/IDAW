@@ -22,5 +22,7 @@ catch (PDOException $erreur) {
     echo "Erreur : " . $erreur->getMessage();
 exit();
 }
+$pdo = null;
 header('Location: users.php');
 }
+?>

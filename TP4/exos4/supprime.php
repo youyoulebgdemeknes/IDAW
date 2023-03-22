@@ -8,7 +8,7 @@ if(isset($_POST['id']) ) {
 
         $tryID=$_POST['id'];
         $sth = $pdo->prepare(
-        "DELETE FROM Users WHERE id= '$tryID' "
+        "DELETE FROM users WHERE id= '$tryID' "
         );
         $sth->execute();
 echo "Entrée effcée dans la table";
@@ -17,5 +17,7 @@ catch (PDOException $erreur) {
     echo "Erreur : " . $erreur->getMessage();
 exit();
 }
+$pdo = null;
 header('Location: users.php');
 }
+?>
