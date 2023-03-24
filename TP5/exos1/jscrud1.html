@@ -67,8 +67,12 @@
 
 
     <script>
-        function DELETE(){
-            
+        id = 0
+        function DELETE(id){
+            $( "#" + id).remove();
+        }
+        function update(){
+
         }
         function onFormSubmit() {
             // prevent the form to be sent to the server
@@ -78,7 +82,8 @@
             let date = $("#inputDate").val();
             let check = $("#inputId").val();
             let remarque = $("#inputRemarque").val();
-            $("#studentsTableBody").append(`<tr><td>${nom}</td><td>${prenom}</td><td>${date}</td><td>${check}</td><td>${remarque}</td><td><button type="button" onclick="">EDIT</button></td><td><button type="button" onclick="">DELETE</button></td></tr>`);
+            id ++ 
+            $("#studentsTableBody").append(`<tr id=${id} ><td>${nom}</td><td>${prenom}</td><td>${date}</td><td>${check}</td><td>${remarque}</td><td><button type="button" onclick=update(${id})>EDIT</button></td><td></button></td><td><button type="button" onclick=DELETE(${id}) data-id="${id}">DELETE</button></td></tr>`);
         }
     </script>
 </body>
