@@ -67,23 +67,48 @@
 
 
     <script>
-        id = 0
-        function DELETE(id){
-            $( "#" + id).remove();
+        id = 0 ;
+        edit = false ;
+        row = 
+        function DELETE(id) {
+            $("#" + id).remove();
         }
-        function update(){
+        function update(id) {
+            let row = $('#' + id);
+            let nom = row.find('td:eq(0)').text();
+            let prenom = row.find('td:eq(1)').text();
+            let date = row.find('td:eq(2)').text();
+            let check = row.find('td:eq(3)').text();
+            let remarque = row.find('td:eq(4)').text();
+            edit = true ;
 
+            // Set the existing values as the default values in the form
+            $("#inputNom").val(nom);
+            $("#inputPrenom").val(prenom);
+            $("#inputDate").val(date);
+            $("#inputId").prop("checked", check === "true");
+            $("#inputRemarque").val(remarque);
         }
-        function onFormSubmit() {
-            // prevent the form to be sent to the server
+
+        function onFormSubmit(edit) {
             event.preventDefault();
-            let nom = $("#inputNom").val();
-            let prenom = $("#inputPrenom").val();
-            let date = $("#inputDate").val();
-            let check = $("#inputId").val();
-            let remarque = $("#inputRemarque").val();
-            id ++ 
-            $("#studentsTableBody").append(`<tr id=${id} ><td>${nom}</td><td>${prenom}</td><td>${date}</td><td>${check}</td><td>${remarque}</td><td><button type="button" onclick=update(${id})>EDIT</button></td><td></button></td><td><button type="button" onclick=DELETE(${id}) data-id="${id}">DELETE</button></td></tr>`);
+            if (edit == false) {
+                // prevent the form to be sent to the server
+                let nom = $("#inputNom").val();
+                let prenom = $("#inputPrenom").val();
+                let date = $("#inputDate").val();
+                let check = $("#inputId").val();
+                let remarque = $("#inputRemarque").val();
+                id++
+                $("#studentsTableBody").append(`<tr id=${id} ><td>${nom}</td><td>${prenom}</td><td>${date}</td><td>${check}</td><td>${remarque}</td><td><button type="button" onclick=update(${id})>EDIT</button></td><td></button></td><td><button type="button" onclick=DELETE(${id}) data-id="${id}">DELETE</button></td></tr>`);
+            } else {
+                row.find("td:nth-child(1)").text($("#inputNom").val(nom));
+                row.find("td:nth-child(2)").text($("#inputPrenom").val());
+                row.find("td:nth-child(3)").text($("#inputDate").val());
+                row.find("td:nth-child(4)").text($("#inputId").prop("checked"));
+                row.find("td:nth-child(5)").text($("#inputRemarque").val());
+                edit = false ;
+            }
         }
     </script>
 </body>
