@@ -52,6 +52,7 @@ function getUsers($id = null){
     $query->execute();
     $response=array();
     $response = $query->fetchAll();
+    
     header('Content-Type: application/json');
     echo json_encode($response, JSON_PRETTY_PRINT);
 }
