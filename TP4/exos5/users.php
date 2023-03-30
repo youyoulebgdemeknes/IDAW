@@ -1,40 +1,36 @@
 <?php
 
-$request_method=$_SERVER["REQUEST_METHOD"];
-switch($request_method)
-{
+$request_method = $_SERVER["REQUEST_METHOD"];
+switch ($request_method) {
   case 'GET':
-    if(!empty($_GET["id"]))
-    {
+    if (!empty($_GET["id"])) {
+      // Récupérer l'users avec l'id
       $id = intval($_GET["id"]);
       getUsers($id);
-    }
-    else
-    {
+    } else {
       // Récupérer tous les users
       getUsers();
     }
     break;
+
   case 'POST':
-    
     addUsers();
-  
     break;
-    case 'DELETE':
-        if(!empty($_GET["id"]))
-        {
-          $id = intval($_GET["id"]);
-          deleteUsers($id);
-        }
-        else
-        {
-          // Récupérer tous les produits
-          deleteUsers();
-        }
-        break;
-        case 'PUT':
-            updateUsers();
-            break;
+
+  case 'DELETE':
+    if (!empty($_GET["id"])) {
+      //delete l'user avec son id
+      $id = intval($_GET["id"]);
+      deleteUsers($id);
+    } else {
+      // delete mes users 
+      deleteUsers();
+    }
+    break;
+
+  case 'PUT':
+    updateUsers();
+    break;
 
   default:
     // Requête invalide
@@ -42,96 +38,104 @@ switch($request_method)
     break;
 }
 
-function getUsers($id = null){
-    require_once('dbconnect.php');
-    if($id === null) {
-        $query = $pdo->prepare("select * from users");
-    } else {
-        $query = $pdo->prepare("select * from users where id = $id");
-    }
-    $query->execute();
-    $response=array();
-    $response = $query->fetchAll();
-    
-    header('Content-Type: application/json');
-    echo json_encode($response, JSON_PRETTY_PRINT);
+function getUsers($id = null)
+{
+  require_once('dbconnect.php');
+  if ($id === null) {
+    $query = $pdo->prepare("select * from users");
+  } else {
+    $query = $pdo->prepare("select * from users where id = $id");
+  }
+  $query->execute();
+  $response = array();
+  $response = $query->fetchAll();
+
+  header('Content-Type: application/json');
+  echo json_encode($response, JSON_PRETTY_PRINT);
 }
-function addUsers(){
-    require_once('dbconnect.php');
-    $name =  $_POST['name'];
-    $email = $_POST['email'];
-      
-     $sql = "INSERT INTO users(name,email)  VALUES ('$name',
-         '$email')";
-    $result= $pdo->prepare($sql)->execute();
-     if ($result)
-    {$response=array(
-        'status' => "HTTP 201",
-        'status_message' =>'Utilisateur ajoute avec succes.'
-      );}
- else
-     {$response=array(
-        'status' => 0,
-        'status_message' =>'Erreur de la requête.'
-      );
-    }
-     header('Content-Type: application/json');
-     echo json_encode($response);
+function addUsers()
+{
+  require_once('dbconnect.php');
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $login = $_POST['login'];
+
+  $sql = "INSERT INTO users(name,email,login)  VALUES ('$name',
+         '$email','$login')";
+  $result = $pdo->prepare($sql)->execute();
+  if ($result) {
+    $response = array(
+      'status' => "HTTP 201",
+      'status_message' => 'Utilisateur ajoute avec succes.'
+    );
+  } else {
+    $response = array(
+      'status' => 0,
+      'status_message' => 'Erreur de la requête.'
+    );
+  }
+  header('Content-Type: application/json');
+  echo json_encode($response);
 }
-function deleteUsers($id = null){
-    require_once('dbconnect.php');
-    if($id === null) {
-        $sql=" TRUNCATE TABLE `users`";
-        $query=$pdo->prepare($sql);
-    } else {
-        $sql="DELETE FROM `users`
+function deleteUsers($id = null)
+{
+  require_once('dbconnect.php');
+  if ($id === null) {
+    $sql = " TRUNCATE TABLE `users`";
+    $query = $pdo->prepare($sql);
+  } else {
+    $sql = "DELETE FROM `users`
         WHERE id=$id";
-        $query=$pdo->prepare($sql);
-    }
-    $query->execute();
-    $result=$query->execute();
-    $response=array();
-    if ($result)
-    {$response=array(
-        'status' => 1,
-        'status_message' =>'Utilisateur ajoute avec succes.'
-      );}
- else
-     {$response=array(
-        'status' => 0,
-        'status_message' =>'Erreur de la requête.'
-      );
-    }
-    
-    $response=array(
-        'status' => 1,
-        'status_message' =>'Utilisateur supprimmer avec succes.'
-      );
-    header('Content-Type: application/json');
-    echo json_encode($response, JSON_PRETTY_PRINT);
+    $query = $pdo->prepare($sql);
+  }
+  $query->execute();
+  $result = $query->execute();
+  $response = array();
+  if ($result) {
+    $response = array(
+      'status' => 1,
+      'status_message' => 'Utilisateur ajoute avec succes.'
+    );
+  } else {
+    $response = array(
+      'status' => 0,
+      'status_message' => 'Erreur de la requête.'
+    );
+  }
+
+  $response = array(
+    'status' => 1,
+    'status_message' => 'Utilisateur supprimmer avec succes.'
+  );
+  header('Content-Type: application/json');
+  echo json_encode($response, JSON_PRETTY_PRINT);
 }
 
-function updateUsers(){
+function updateUsers()
+{
   require_once('dbconnect.php');
-  $json=file_get_contents('php://input');
-  $put= json_decode($json, TRUE);
+  $json = file_get_contents('php://input');
+  $put = json_decode($json, TRUE);
   $id = $put['id'];
   $name = $put['name'];
   $email = $put['email'];
-   $sql = "UPDATE users
+  $sql = "UPDATE users
    SET name = '$name',
      email = '$email'
    WHERE id =$id";
 
-   $test = $pdo->prepare($sql)->execute();
-   if($test){
-   $response=array(
+  $test = $pdo->prepare($sql)->execute();
+  if ($test) {
+    $response = array(
       'status' => 1,
-      'status_message' =>'Utilisateur mis à jour  avec succes.'
-    );}else{ $response=array(
+      'status_message' => 'Utilisateur mis à jour  avec succes.'
+    );
+  } else {
+    $response = array(
       'status' => 0,
-      'status_message' =>'erreur');
-    }
+      'status_message' => 'erreur'
+    );
+  }
   header('Content-Type: application/json');
   echo json_encode($response, JSON_PRETTY_PRINT);
 }

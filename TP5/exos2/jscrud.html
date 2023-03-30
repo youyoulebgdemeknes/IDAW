@@ -24,14 +24,15 @@
     <table id="table">
         <thead>
             <tr>
+                <th scope="col">Id</th>
                 <th scope="col">Nom</th>
                 <th scope="col">Email</th>
                 <th scope="col">Login</th>
+                <th scope="col">CRUD</th>
             </tr>
         </thead>
-        <tbody id="studentsTableBody">
-        </tbody>
     </table>
+
     <form id="addStudentForm" action="" onsubmit="onFormSubmit();">
         <div class="form-group row">
             <label for="inputNom" class="col-sm-2 col-form-label">Nom</label>
@@ -57,19 +58,29 @@
 
 
     <script>
+        var table;
         $(document).ready(function () {
-            $('#table').DataTable({
+             table = $('#table').DataTable({
                 ajax: {
                     url: 'http://localhost/IDAW/TP4/exos5/users.php',
                     dataSrc: ''
                 },
                 columns: [
+                    { data: 'id' },
                     { data: 'name' },
                     { data: 'email' },
-                    { data: 'login' }
-                ]
+                    { data: 'login' },
+                    {
+                        targets: -1,
+                        data: null,
+                        defaultContent: '<td><button class=edit >EDIT</button></td><td><button class=delete >DELETE</button></td>',
+                    },
+                ],
             });
+            $('#table tbody').on('click', ".delete", ondelete);
         });
+
+
         function onFormSubmit() {
             let name = $("#inputNom").val();
             let email = $("#inputEmail").val();
@@ -88,25 +99,73 @@
 
                     data: {
                         "name": name,
-                        "email":email,
-                        "login":login
+                        "email": email,
+                        "login": login
                     },
                 })
                     //Ce code sera exécuté en cas de succès - La réponse du serveur est passée à done()
                     /*On peut par exemple convertir cette réponse en chaine JSON et insérer
                      * cette chaine dans un div id="res"*/
                     .done(function (response) {
-                        print("sa marche")
+                        table.row.add({
+                            "name": name,
+                            "email": email,
+                            "login": login
+                        }).draw();
+
                     })
                     //Ce code sera exécuté en cas d'échec - L'erreur est passée à fail()
                     //On peut afficher les informations relatives à la requête et à l'erreur
                     .fail(function (error) {
                         alert("La requête s'est terminée en échec. Infos : ");
                     })
-                    //Ce code sera exécuté que la requête soit un succès ou un échec
-                    .always(function () {
-                        alert("Requête effectuée");
-                    });
+                //Ce code sera exécuté que la requête soit un succès ou un échec
+                //.always(function () {
+                //    alert("Requête effectuée");
+                //});
+            });
+        }
+        function ondelete() {
+            var data = table.row($(this).parents('tr')).data();
+            alert(data[0]);
+            $(document).ready(function () {
+                $.ajax({
+                    //L'URL de la requête 
+                    url: 'http://localhost/IDAW/TP4/exos5/users.php',
+
+                    //La méthode d'envoi (type de requête)
+                    method: "POST",
+
+                    //Le format de réponse attendu
+                    dataType: "json",
+
+                    data: {
+                        "name": name,
+                        "email": email,
+                        "login": login
+                    },
+                })
+                    //Ce code sera exécuté en cas de succès - La réponse du serveur est passée à done()
+                    /*On peut par exemple convertir cette réponse en chaine JSON et insérer
+                     * cette chaine dans un div id="res"*/
+                    .done(function (response) {
+                        table.row.add({
+                            "id" :  id ,
+                            "name": name,
+                            "email": email,
+                            "login": login
+                        }).draw();
+
+                    })
+                    //Ce code sera exécuté en cas d'échec - L'erreur est passée à fail()
+                    //On peut afficher les informations relatives à la requête et à l'erreur
+                    .fail(function (error) {
+                        alert("La requête s'est terminée en échec. Infos : ");
+                    })
+                //Ce code sera exécuté que la requête soit un succès ou un échec
+                //.always(function () {
+                //    alert("Requête effectuée");
+                //});
             });
         }
     </script>

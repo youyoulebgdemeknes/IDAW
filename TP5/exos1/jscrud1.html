@@ -102,7 +102,7 @@
                 id++
                 $("#studentsTableBody").append(`<tr id=${id} ><td>${nom}</td><td>${prenom}</td><td>${date}</td><td>${check}</td><td>${remarque}</td><td><button type="button" onclick=update(${id})>EDIT</button></td><td></button></td><td><button type="button" onclick=DELETE(${id}) data-id="${id}">DELETE</button></td></tr>`);
             } else {
-                // Change the form's submit button to an "Update" button
+                // modify the value in the table
                 grow.find("td:nth-child(1)").text($("#inputNom").val());
                 grow.find("td:nth-child(2)").text($("#inputPrenom").val());
                 grow.find("td:nth-child(3)").text($("#inputDate").val());
