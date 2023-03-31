@@ -11,7 +11,7 @@
 $style = 'style1';
 
 if(isset($_COOKIE['style'])){
-    $style = $_COOKIE['style']
+    $style = $_COOKIE['style'];
 }
 
 if(isset($_GET['css'])){
